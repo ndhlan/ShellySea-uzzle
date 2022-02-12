@@ -63,6 +63,8 @@
         setTimeout(() => {
           mobileWarning.style.display = "none";
         }, 5000);
+        
+        
       } else {
         canvas.style.width = "640px";
         canvas.style.height = "360px";
@@ -71,11 +73,11 @@
       //*****************************************************************************************
       //FORCE LANDSCAPEMODE
       function checkOrientation() {
-        var winWidth = $(window).width();
-        var winHeight = $(window).height();
+        var winWidth = window.width();
+        var winHeight = window.height();
 
         if (winHeight > winWidth) {
-          $('body').width(winHeight).height(winWidth); // swap the width and height of BODY if necessary
+         document.querySelector('body').width(winHeight).height(winWidth); // swap the width and height of BODY if necessary
         }
       }
 
@@ -83,7 +85,7 @@
 
       // Check orientation on page resize (mainly for demo as it's unlikely a tablet's window size will change)
       var resizeEnd;
-      $(window).resize(function(){ 
+      window.resize(function(){ 
       clearTimeout(resizeEnd);
       resizeEnd = setTimeout(checkOrientation, 100);
       });
